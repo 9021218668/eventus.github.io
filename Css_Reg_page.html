@@ -1,0 +1,381 @@
+<html>
+<head>
+<title>Registration page</title>
+</head>
+<body>
+	<div class="regform"><h1>Register here for this amazing event...!<h1></div>
+	<div class="main">
+	<form method="post" name="google-sheet">
+	
+	<h2>Name</h2>
+	<input type="text" class="firstname" id="fn" name="Name" placeholder="Enter Your First Name"><br>
+	<label class="firstlabel">first name</label>
+	
+	<input  type="text" class="lastname" id="ln" name="Last" placeholder="Enter Your Last Name" >
+	<label class="lastlabel">last name</label>
+
+	
+	<h2>College Name</h2>
+	<input class="CN" type="text" id="cn" name="College" placeholder="Enter Your Collage Name">
+	
+	
+	<h2>Email</h2>
+	<input class="email" type="text" id="email" name="email" placeholder="Enter Your Email Id" onchange="validate('registration_form','email');">
+   
+	
+	
+	<h2>Address</h2>
+	<input class="code" type="text" id="add" name="Address" placeholder="Enter Your Address">
+	<label class="area_code">Address</label>
+	
+	
+	<input class="number" type="text" name="phone" id="num" placeholder="+91" >
+	<label class="phone-number">Phone Number</label>
+	
+	
+	<h2>Event Topic</h2>
+	<select class="option" id="eve" >
+	<option disabled="disabled" id="event" name="">Choice Option</option>
+	<option name="Coding Event">Coding event</option>
+	<option name="Gaming Event">Gaming event</option>
+	<option name="Technical Paint">Technical paint event</option>
+	<option name="Website Event">Website designing event</option>
+	</select>
+	
+	<h2>Are you want to participate?</h2>
+	<label class="radio">
+	<input class="radio-one" type="radio" name="Yes" id="yes">
+	Yes
+	</label>
+	<label class="radio">
+	<input class="radio-one" type="radio" name="No">
+	
+	No
+	</label>
+	
+	<button type="Register" value="Submit" name="submit" onclick="reg()">REGISTER</button>
+	
+	</div>
+	</div>
+	</form>	
+	<script>
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbzMnnr0YjouzqDHKF2Q3dzmTcxzmWUVRUqRdBJQ6qfFKYxoDa8Ya2OisMPWcjLaO0cYMA/exec' 
+      const form = document.forms['google-sheet'] 
+  
+ form.addEventListener('submit', e => { 
+   e.preventDefault() 
+   fetch(scriptURL, { method: 'POST', body: new FormData(form)}) 
+     .then(response => console.log('Success!',response())) 
+     .catch(error => console.error('Error!', error.message)) 
+     window.alert("Thanks for your query we will respond ASAP!!!"); 
+ })
+		
+	</script>
+		
+	
+<script>
+	
+	function reg()
+	{
+		if(document.getElementById("fn").value == "")
+		{
+			alert("Please enter your First name");
+		}
+	    else if(document.getElementById("ln").value == "")
+		{
+			alert("Please enter your last name");
+		}
+	    else if(document.getElementById("cn").value == "")
+		{
+			alert("Please enter your collage name")
+		}
+	    else if(document.getElementById("email").value == "")
+		{
+			alert("Please enter your email id");
+		}
+		else if(document.getElementById("add").value == "")
+		{
+			alert("Please enter your Address");
+		}
+	    else if(document.getElementById("eve").value == "")
+		{
+			alert("Please select event topic");
+		}
+		else if(document.getElementById("yes").checked == false)
+		{
+			alert("Please select yes option");
+		}
+		else
+		{	
+			alert("Your data stored successfully...!");
+		}
+		
+	
+	   }
+	
+
+	
+	</script>
+	<script>
+	
+		function validate(form_id, email)
+		{
+			var reg= /^(A-Z) {1,}\@([A-Za-z0-9_\-\.]){1,}\([A-Za-z]{2,4})$/;
+			var add=document.forms[form_id].elements[email].value;
+		if( ref.test(add) == false)
+		{
+			alert("Invalid email");
+			document.forms[form_id].elements[email].focus();
+			return false;
+		}
+	   }
+	</script>
+	<table width="1499px" height="10px" bgcolor="black" style="margin-bottom: 10px;">	
+				
+	<tr height="20px"></tr>
+	<tr height="20px">	
+			
+		<td width="300px" style="padding-left:30px"><font color="orange" font size="5"><b> Eventus </b></font> 
+		</td>	
+	</tr>
+	
+	<tr height="10px"></tr>
+
+	<tr height="30px">	
+				<td style="padding-bottom:20px; padding-left:30px"><font size="4" font color="white">
+					Develop your skills and improve <br>
+					Your knowledge..!<br>
+					For better tomorrow
+					</font> 
+				</td>
+				<td style="text-align: center;">
+					<font color="orange">
+						Copyright ©2022 All rights reserved | 
+
+
+					</font>
+				</td>	
+			<td style="text-align: center;">	<a href="https://www.instagram.com/"><img id="foot" src="insta.jpg"></a>
+				<a href="https://www.facebook.com/"><img id="foot" src="facebook.png"></a>
+				<a href="https://twitter.com/"><img id="foot" src="twitter.jpg"></a>
+					
+			</td>
+			
+			<tr height="10px"> 
+			</tr> 
+</table>
+</body>
+<style> 
+*{
+	margin:0;
+	padding:0;
+}
+  body{
+		background-image:url(Event.jpg);
+		background-position:center;
+		background-size:cover;
+		font-family:sans-serif;
+		margin-top:40px;
+	}
+.regform{
+		width:800px;
+		background-color:rgb(0,0,0.6);
+		margin:auto;
+		color:#ffffff;
+		padding:10px 0px 10px 0px;
+		text-align:center;
+		border-radius:15px 15px 0px 0px;
+		
+}
+.main{
+		background-color:rgb(0,0,0,0.5);
+		width:800px;
+		margin:auto;
+		
+}
+ form{
+		padding:10px;
+  }
+#name{
+		width:100%;
+		height:100px;
+}
+.name{
+		margin-left:25px;
+		margin-top:30px;
+		width:125px;
+		color:white;
+		font-size:18px;
+		font-weight:700px;
+}
+.firstname{
+		position:relative;
+		left:200px;
+		top:-37px;
+		line-height:40px;
+		border-radius:6px;
+		padding:0 22px;
+		font-size:16px;
+		
+}
+.lastname{
+		position:relative;
+		left:417px;
+		top:-80px;
+		line-height:40px;
+		border-radius:6px;
+		padding:0 22px;
+		font-size:16px;
+		color:#555;	
+}
+.firstlabel{
+		position:relative;
+		color:#e5e5e5;
+		text-transform:capitalize;
+		font-size:14px;
+		left:203px;
+		top:-45px;
+}
+.lastlabel{
+		position:relative;
+		color:#e5e5e5;
+		text-transform:capitalize;
+		font-size:14px;
+		left:175px;
+		top:-45px;
+}
+.CN{
+	position:relative;
+	left:200px;
+	top:-37px;
+	line-height:40px;
+	width:480px;
+	border-radius:6px;
+	padding:0px 22px;
+	font-size:16px;
+	color:#555;
+}
+.email{
+	position:relative;
+	left:200px;
+	top:-37px;
+	line-height:40px;
+	width:250px;
+	border-radius:6px;
+	padding:0 22px;
+	font-size:16px;
+	color:#555;
+}
+.code{
+	position:relative;
+	left:200px;
+	top:-37px;
+	line-height:40px;
+	width:250px;
+	border-radius:6px;
+	padding:0px 22px;
+	font-size:16px;
+	color:#555;
+}
+.number{
+	position:relative;
+	left:200px;
+	top:-37px;
+	line-height:40px;
+	width:250px;
+	border-radius:6px;
+	padding:0px 22px;
+	font-size:16px;
+	color:#555;
+}
+.area_code{
+	position:relative;
+	color:#e5e5e5;
+	text-transform:capitalize;
+	font-size:16px;
+	left:-50px;
+	top:-3px;
+}
+.phone-number{
+	position:relative;
+	color:#e5e5e5;
+	text-transform:capitalize;
+	font-size:16px;
+	left:-50px;
+	top:-3px;
+}
+.option{
+	position:relative;
+	left:200px;
+	top:-37px;
+	line-height:30px;
+	width:500px;
+	border-radius:6px;
+	padding:0px 22px;
+	font-size:16px;
+	color:#555;
+	outline:none;
+	overflow:hidden;
+	height:40px;
+}
+.option option{
+	font-size:20px;
+	
+}
+#student{
+	margin-left:25px;
+	color:white;
+	font-size:18px;
+}
+.radio{
+	display:inline-block;
+	padding-right:70px;
+	font-size:25px;
+	margin-left:25px;
+	margin-top:15px;
+	color:black;
+}
+.radio input{
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	cursor:pointer;
+	outline:none;
+}
+button{
+	background-color:purple;
+	display:block;
+	margin:20px 0px 0px 20px;
+	text-align:center;
+	border-radius:12px;
+	border:2px solid blue;
+	padding:14px 110px;
+	outline:none;
+	color:white;
+	cursor:pointer;
+	transition:0.25px;
+	
+}
+button:hover{
+	background-color:#5390F5;
+}
+.regform h2{
+	padding:20px 0px 0px 20px;
+	
+}
+	#foot
+{
+		height:35px;
+		width:35px;
+		padding:2px;
+}
+
+#text
+{
+	margin:5px;
+	padding:10px;
+	align: center; 
+}
+
+</style>
+</html>
